@@ -1,15 +1,7 @@
 const mongoose = require('mongoose')
 
 const bookSchema = mongoose.Schema({
-  title :{
-    type: String,
-    required: true
-  },
-  genre:{
-    type: String,
-    required: true
-  },
-  description: {
+  title : {
     type: String,
     required: true
   },
@@ -17,25 +9,32 @@ const bookSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  publisher: {
+  genre: {
     type: String,
     required: true
+  },
+  description: {
+    type: String,
+  },
+  publisher: {
+    type: String,
   },
   pages: {
     type: String,
-    required: true
   },
   image_url: {
     type: String,
-    required: true
   },
   buy_url: {
     type: String,
-    required: true
   }
 })
 
 const Book = module.exports = mongoose.model('Book', bookSchema)
+
+module.exports.getBookById = function (id, callback) {
+  Book.findById(id, callback)
+}
 
 module.exports.getBooks = (callback, limit) => {
   Book.find(callback).limit(limit)
