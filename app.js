@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 
-app.use(bodyParser.json)
+
+app.use(bodyParser.json())
 const Genre = require('./models/genre')
 const Book = require('./models/book')
 
@@ -69,4 +71,4 @@ app.post('/api/genres', (req, res) => {
 
 
 app.listen(3000)
-console.log('Running on port 3000, loud and clear');
+console.log('Running on port 3000, loud and clear')
