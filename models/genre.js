@@ -14,7 +14,12 @@ const genreSchema = mongoose.Schema({
 
 const Genre = module.exports = mongoose.model('Genre', genreSchema)
 
-//Get genres
+//Get Genres
 module.exports.getGenres = (callback, limit) => {
   Genre.find(callback).limit(limit)
+}
+
+//Add Genre
+module.exports.addGenre = (genre, callback) => {
+  Genre.create(genre, callback)
 }
