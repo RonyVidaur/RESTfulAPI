@@ -59,3 +59,9 @@ module.exports.updateBook = (id, book, options, callback) => {
   }
 Book.findOneAndUpdate(query, update, options, callback)
 }
+
+ //Delete a Book
+ module.exports.removeBook = (id, callback) => {
+   const query = {_id: id}
+   Book.remove(query, callback)
+ }
