@@ -3,8 +3,6 @@ const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-
-
 app.use(bodyParser.json())
 const Genre = require('./models/genre')
 const Book = require('./models/book')
@@ -48,6 +46,20 @@ app.post('/api/books', (req, res) => {
   })
 })
 
+//Update genre
+app.put('/api/books/:id', (req, res) => {
+  const id = req.params._id
+  const genre = req.body
+  Book.updateBook(id, book, {}, (error, book) => {
+    if (error) {
+      throw error
+    }
+    res.json(book)
+  })
+})
+
+/* GENRES FROM HERE */
+
 //get genres
 app.get('/api/genres', (req, res) => {
   Genre.getGenres((error, genres) => {
@@ -62,6 +74,18 @@ app.get('/api/genres', (req, res) => {
 app.post('/api/genres', (req, res) => {
   const genre = req.body
   Genre.addGenre(genre, (error, genre) => {
+    if (error) {
+      throw error
+    }
+    res.json(genre)
+  })
+})
+
+//Update genre
+app.put('/api/genres/:id', (req, res) => {
+  const id = req.params._id
+  const genre = req.body
+  Genre.updateGenre(id, genre, {}, (error, genre) => {
     if (error) {
       throw error
     }
