@@ -47,9 +47,9 @@ app.post('/api/books', (req, res) => {
 })
 
 //Update Book
-app.put('/api/books/:id', (req, res) => {
+app.put('/api/books/:_id', (req, res) => {
   const id = req.params._id
-  const genre = req.body
+  const book = req.body
   Book.updateBook(id, book, {}, (error, book) => {
     if (error) {
       throw error
@@ -59,7 +59,7 @@ app.put('/api/books/:id', (req, res) => {
 })
 
 //Delete Book
-app.delete('/api/books/:id', (req, res) => {
+app.delete('/api/books/:_id', (req, res) => {
   const id = req.params._id
   const genre = req.body
   Book.removeBook(id, (error, book) => {
@@ -95,7 +95,7 @@ app.post('/api/genres', (req, res) => {
 })
 
 //Update genre
-app.put('/api/genres/:id', (req, res) => {
+app.put('/api/genres/:_id', (req, res) => {
   const id = req.params._id
   const genre = req.body
   Genre.updateGenre(id, genre, {}, (error, genre) => {
@@ -107,7 +107,7 @@ app.put('/api/genres/:id', (req, res) => {
 })
 
 //Delete genre
-app.delete('/api/genres/:id', (req, res) => {
+app.delete('/api/genres/:_id', (req, res) => {
   const id = req.params._id
   const genre = req.body
   Genre.removeGenre(id, (error, genre) => {

@@ -46,7 +46,7 @@ module.exports.addBook = (book, callback) => {
 
 //Update a Book
 module.exports.updateBook = (id, book, options, callback) => {
-  const query = {_id:id}
+  const query = {_id: id}
   const update = {
     title: book.title,
     genre: book.genre,
