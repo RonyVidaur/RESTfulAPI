@@ -8,7 +8,7 @@ const Genre = require('./models/genre')
 const Book = require('./models/book')
 
 //connect to mongoose
-mongoose.connect('mongodb://localhost/bookstore')
+mongoose.connect('mongodb://127.0.0.1/bookstore')
 const db = mongoose.connection
 
 app.get('/', (req, res) => {
